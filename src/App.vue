@@ -1,15 +1,22 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template>  
+    <div>
+      <conteudo />
+      <topo-padrao />
+
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Conteudo from './components/layouts/Conteudo.vue'
+import TopoPadrao from './components/layouts/TopoPadrao.vue'
 
+// só posso usar os components depois de importar e registrar eles dentro
+// do objeto literal components
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Conteudo,
+    TopoPadrao
   }
 }
 </script>
