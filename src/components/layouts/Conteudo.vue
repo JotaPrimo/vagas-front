@@ -1,9 +1,16 @@
 <template>
   <div>
     <h1>{{ titulo }}</h1>
+
     <button @click="atualizarComponent()">Atualizar</button>
-    <home></home>
-    <publicar-vaga></publicar-vaga>
+    <button class="btn btn-primary" @click="conteudo = 'home' ">Home</button>
+    <button class="btn btn-warning" @click="conteudo = 'publicar-vaga' ">Publicar Vaga</button>
+
+    <!-- renderizando de modo dinamico os componentes  home e publicar vaga -->
+    <component :is="conteudo"></component>
+    <!-- <home></home>
+    <publicar-vaga></publicar-vaga> -->
+
   </div>
 </template>
 
@@ -20,6 +27,7 @@ export default {
   data: () => ({
     teste: "O componente foi criado",
     titulo: "Componente Conteudo",
+    conteudo: 'home'
   }),
 
   methods: {
