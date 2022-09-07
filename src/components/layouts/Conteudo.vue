@@ -1,106 +1,86 @@
 <template>
   <div>
-    <h1>{{ titulo }}</h1>
-
-    <button @click="atualizarComponent()">Atualizar</button>
-    <button class="btn btn-primary" @click="conteudo = 'home' ">Home</button>
-    <button class="btn btn-warning" @click="conteudo = 'publicar-vaga' ">Publicar Vaga</button>
-
-    <!-- renderizando de modo dinamico os componentes  home e publicar vaga -->
-    <component :is="conteudo"></component>
-    <!-- <home></home>
-    <publicar-vaga></publicar-vaga> -->
-
+    <h1>{{titulo}}</h1>
+    <button @click="atualizarComponente()">Atualizar</button>
+    <button @click="conteudo = 'home'">Home</button>
+    <button @click="conteudo = 'publicar-vaga'">Publicar Vaga</button>
+    <!-- renderizar de modo dinâmico os componentes home e publicar-vaga -->
+    <!--<home></home>-->
+    <!--<publicar-vaga></publicar-vaga>-->
+    <keep-alive>
+      <component :is="conteudo" />
+    </keep-alive>
   </div>
 </template>
 
 <script>
-import Home from "@/components/views/Home.vue";
-import PublicarVaga from "@/components/views/PublicarVaga.vue";
+import Home from '@/components/views/Home.vue'
+import PublicarVaga from '@/components/views/PublicarVaga.vue'
 export default {
-  name: "Conteudo",
+  name: 'Conteudo',
   components: {
     Home,
-    PublicarVaga,
+    PublicarVaga
   },
-
   data: () => ({
-    teste: "O componente foi criado",
-    titulo: "Componente Conteudo",
+    teste: 'O componente foi criado',
+    titulo: 'Componente Conteudo',
     conteudo: 'home'
   }),
-
   methods: {
-    atualizarComponent() {
-      this.titulo += "*";
-    },
-  },
-
-  beforeCreate() {
-    // não posso acessar estar propriedade antes do app ser criado
-    console.log("Antes de criar", this.teste);
-  },
-
-  created() {
-    // agora que o app foi criado, posso acessar o data
-    console.log("Criado", this.teste);
-  },
-
-  beforeMount() {
-    // posso recuperar dados por uma api e atribuir ao componente
-    // para montar o app de fato
-    console.log("Antes de Montar o template");
-  },
-  mounted() {
-    console.log("Montado");
-  },
-
-  beforeUpdate() {
-    // realcionado as atuliazações do code do componente
-    console.log("Montado");
-  },
-
-  updated() {
-    // realcionado as atuliazações do code do componente
-    console.log("Atualizado");
-  },
-
-  beforeUnmount() {
-    console.log("Antes de destruir");
-  },
-
-  unmounted() {
-    console.log("destruido");
+    atualizarComponente() {
+      this.titulo += '*'
+    }
   },
   /*
+  beforeCreate() {
+    console.log('Antes de criar', this.teste)
+  },
+  created() {
+    console.log('Criado', this.teste)
+  },
+  beforeMount() {
+    console.log('Antes de montar o template')
+  },
+  mounted() {
+    console.log('Montado')
+  },
+  beforeUpdate() {
+    console.log('Antes de atualizar')
+  },
+  updated() {
+    console.log('Atualizado')
+  },
+  beforeUnmount() {
+    console.log('Antes de demonstar/destruir')
+  },
+  unmounted() {
+    console.log('Demonstado/destruído')
+  },
   errorCaptured() {
-    console.log("Erro capturado");
+    console.log('Erro capturado')
   },
-
   renderTracked() {
-    console.log("Re-renderização rastreada");
+    console.log('Re-renderização rastreada')
   },
-
   renderTriggered() {
-    console.log("Re-renderização acionada");
+    console.log('Re-renderização acionada')
   },
-
   activated() {
-    console.log("Componente Aativado");
+    console.log('Componente é ativado')
   },
-
   deactivated() {
-    console.log("Componente desativado");
-  },
+    console.log('Componente é desativado')
+  }
   */
-};
+}
 </script>
 
 <style module>
 .teste {
-  background-color: red;
+  background-color: red
 }
 #teste-2 {
-  background-color: yellow;
+  background-color: yellow
 }
 </style>

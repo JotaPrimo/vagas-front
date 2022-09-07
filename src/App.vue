@@ -1,46 +1,31 @@
 <template>
   <div>
-    <h1>componente APP</h1>
-    <button @click="desmontarComponent()">
-      Desmontar o Componente Conteudo
-    </button>
+    <h1>Componente App</h1>
+    <button @click="desmontarComponente()">Desmontar o componente Conteudo</button>
     <topo-padrao />
-
-    <conteudo v-if="visibilidate" />
+    <conteudo v-if="visibilidade"></conteudo>
   </div>
 </template>
 
 <script>
-// o @ aponta pro src, para a raiz
-import Conteudo from "@/components/layouts/Conteudo.vue";
-import TopoPadrao from "@/components/layouts/TopoPadrao.vue";
+import Conteudo from '@/components/layouts/Conteudo.vue'
+import TopoPadrao from '@/components/layouts/TopoPadrao.vue'
 
-// só posso usar os components depois de importar e registrar eles dentro
-// do objeto literal components
 export default {
-  name: "App",
+  name: 'App',
   data: () => ({
-    visibilidate: true,
+    visibilidade: true
   }),
-
   methods: {
-    desmontarComponent() {
-      this.visibilidate = false;
-    },
+    desmontarComponente() {
+      this.visibilidade = false
+    }
   },
-
   components: {
     Conteudo,
-    TopoPadrao,
-  },
-};
+    TopoPadrao
+  }
+}
 </script>
 
-<style scoped>
-/* a tag scope mantem o estilo de cada compoente dentro de si mesmo */
-/* em afetar os inferiores e superiores */
-/* sem o scop , o ultimo estilo carregado é aplicado */
-h1 {
-  color: red;
-}
-</style>
+<style scoped></style>
