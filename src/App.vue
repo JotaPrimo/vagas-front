@@ -1,6 +1,7 @@
 <template>  
     <div>
       
+      <h1>componente APP</h1>
       <topo-padrao />
 
       <conteudo />
@@ -23,6 +24,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+/* a tag scope mantem o estilo de cada compoente dentro de si mesmo */
+ /* em afetar os inferiores e superiores */
+ /* sem o scop , o ultimo estilo carregado é aplicado */
+  h1 {
+    color: red;
+  }
 </style>

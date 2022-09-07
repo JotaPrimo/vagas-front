@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h1>Componente Home</h1>
+    <p>Publicar Vaga</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'PublicarVaga'
 }
 </script>
 
-<style scoped></style>
+<style></style>

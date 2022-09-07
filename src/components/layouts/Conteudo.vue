@@ -1,24 +1,31 @@
 <template>
-  <div>  
-      <p>Conteudo do Conteudo</p>  
-      <home></home>
-      <publica-vaga />
+  <div>
+    <h1>Componente Conteudo</h1>
+    <p>Conteudo - Propriedade $style: {{$style}}</p>
+    <div :class="$style.teste">Class teste-1</div>
+    <div :id="$style['teste-2']">ID teste-2</div>
+    <home></home>
+    <publicar-vaga></publicar-vaga>
   </div>
 </template>
 
 <script>
-
-import Home from '../views/Home.vue' 
-import PublicaVaga from '../views/PublicaVaga.vue'
-
+import Home from '../views/Home.vue'
+import PublicarVaga from '../views/PublicarVaga.vue'
 export default {
-    name: 'Conteudo',
-    components: {
-      Home,      
-      PublicaVaga
-    }
+  name: 'Conteudo',
+  components: {
+    Home,
+    PublicarVaga
   }
+}
 </script>
 
-
-<style></style>
+<style module>
+.teste {
+  background-color: red
+}
+#teste-2 {
+  background-color: yellow
+}
+</style>
