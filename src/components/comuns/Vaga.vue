@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <div class="card-header bg-dark text-white">{{ tituloVagaTeste }}</div>
+        <div class="card-header bg-dark text-white">{{ titulo-vaga-teste }}</div>
         <div class="card-body">
         <p>{{ descricaoVaga }}</p>
         </div>
@@ -16,20 +16,40 @@ export default {
     // props: ['tituloVagaTeste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao'],
     props: {
         // tipagem de dados vue
-        tituloVagaTeste: String,
-        descricaoVaga: String,
-        salario:[Number, String],
-        modalidade: String,
-        tipo: String,
-        publicacao: String
+        tituloVagaTeste: {
+            type: String,
+            required: true,
+            validator(p) {
+                console.log('Prop: ', p, p.length)
+                if(p.length < 6) {
+                    return false
+                }
+                return true;
+                
+            }
+        },
+        descricaoVaga: {
+            type: String,
+            required: true
+        },
+        salario: {
+            type: [Number, String],
+            required: true
+        },
+        modalidade: {
+            type: String,
+            required: true
+        },
+        tipo: {
+            type: String,
+            required: true
+        },
+        publicacao: {
+            type: String,
+            required: true
+        }
     },
-    created() {  
-         console.log(typeof this.tituloVagaTeste);      
-        console.log(typeof this.descricaoVaga);
-        console.log(typeof this.salario);
-        console.log(typeof this.modalidade);
-        console.log(typeof this.tipo);
-        console.log(typeof this.publicacao);
-    }
+    
 }
+
 </script>
