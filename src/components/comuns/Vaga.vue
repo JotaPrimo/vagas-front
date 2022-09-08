@@ -13,6 +13,23 @@
 <script>
 export default {
     name: 'Vaga',
-    props: ['titulo-vaga-teste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao']
+    // props: ['tituloVagaTeste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao'],
+    props: {
+        // tipagem de dados vue
+        tituloVagaTeste: String,
+        descricaoVaga: String,
+        salario:[Number, String],
+        modalidade: String,
+        tipo: String,
+        publicacao: String
+    },
+    created() {  
+         console.log(typeof this.tituloVagaTeste);      
+        console.log(typeof this.descricaoVaga);
+        console.log(typeof this.salario);
+        console.log(typeof this.modalidade);
+        console.log(typeof this.tipo);
+        console.log(typeof this.publicacao);
+    }
 }
 </script>
