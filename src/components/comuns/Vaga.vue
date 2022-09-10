@@ -1,8 +1,8 @@
 <template>
     <div class="card">
-        <div class="card-header bg-dark text-white">{{ titulo-vaga-teste }}</div>
+        <div class="card-header bg-dark text-white">{{ titulo }}</div>
         <div class="card-body">
-        <p>{{ descricaoVaga }}</p>
+        <p>{{ descricao }}</p>
         </div>
         <div class="card-footer">
         <small class="text-muted">Salário: R$ {{ salario }} | Modalidade: {{ modalidade }} | Tipo: {{ tipo }} | Publicação: {{ publicacao }}</small>
@@ -13,29 +13,28 @@
 <script>
 export default {
     name: 'Vaga',
-    // props: ['tituloVagaTeste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao'],
+    //props: ['tituloVagaTeste', 'descricaoVaga', 'salario', 'modalidade', 'tipo', 'publicacao'],
     props: {
-        // tipagem de dados vue
-        tituloVagaTeste: {
+        titulo: {
             type: String,
             required: true,
             validator(p) {
-                console.log('Prop: ', p, p.length)
-                if(p.length < 6) {
-                    return false
-                }
-                return true;
-                
+                //console.log('Prop: ', p, )
+                if(p.length < 6) return false //se estiver inválido
+                return true //se estiver válido
             }
         },
-        descricaoVaga: {
+        descricao: {
             type: String,
-            required: true
+            //default: 'O contratante não adicinou uma descrição para essa vaga'
+            default() {
+                return '*'.repeat(20)
+            }
         },
         salario: {
-            type: [Number, String],
+            type: [ Number, String ],
             required: true
-        },
+        } ,
         modalidade: {
             type: String,
             required: true
@@ -48,8 +47,6 @@ export default {
             type: String,
             required: true
         }
-    },
-    
+    }
 }
-
 </script>
